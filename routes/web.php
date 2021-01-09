@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Livewire\Despesa\{
+    DespesaCreate,
+    DespesaEdit,
+    DespesaList,
+};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +25,13 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+
+Route::middleware(['auth:sanctum', 'verified'])->group( function () {
+    Route::prefix('despesas')->name('despesas.')->group(function(){
+        Route::get('/',DespesaList::class)->name('index');
+        Route::get('/create',DespesaCreate::class)->name('create');
+        Route::get('/edit/{despesa}',DespesaEdit::class)->name('edit');
+    });
+
+});

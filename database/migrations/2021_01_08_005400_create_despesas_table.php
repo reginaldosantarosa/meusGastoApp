@@ -18,7 +18,7 @@ class CreateDespesasTable extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->integer('type');
             $table->string('descricao');
-            $table->integer('amount');
+            $table->integer('valor');
             $table->timestamps();
         });
     }
