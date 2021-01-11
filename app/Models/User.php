@@ -60,7 +60,7 @@ class User extends Authenticatable
     ];
 
 
-    public function desepsas()
+    public function despesas()
     {
         return $this->hasMany(Despesa::class); //um usuario, varias despesas.
 

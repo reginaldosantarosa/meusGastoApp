@@ -2,21 +2,27 @@
 
 namespace App\Http\Livewire\Despesa;
 
+
 use App\Models\Despesa;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class DespesaCreate extends Component
 {
+    use WithFileUploads;
 
     public $valor=0.00;
     public $descricao;
     public $type;
+    public $foto;
+    public $despesa_data;
 
     protected $rules = [
         'valor' => 'required',
         'type'   => 'required',
         'descricao' => 'required',
-       
+        'foto'=> 'image|nullable',
+
     ];
 
 
@@ -24,11 +30,17 @@ class DespesaCreate extends Component
 
         $this->validate();
 
-        Despesa::create([
+        if ($this->foto){
+            $this->foto = $this->foto->store('despesas-foto','public');
+        }
+
+        auth()->user()->despesas()->create([
             'valor' => $this->valor,
             'descricao' => $this->descricao,
             'type' => $this->type,
             'user_id' =>1,
+            'foto' => $this->foto,
+            'despesa_data' => $this->despesa_data,
 
         ]);
 

@@ -28,7 +28,6 @@
             @error('valor')
             <h5 class="text-red-500 text-xs italic">{{$message}}</h5>
             @enderror
-
             </p>
 
 
@@ -43,6 +42,29 @@
             @error('type')
              <h5 class="text-red-500 text-xs italic">{{$message}}</h5>
             @enderror
+            </p>
+
+            <p class="w-full px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Comprovante Registro</label>
+                <input type="file" name="foto" wire:model="foto"
+                       class="block appearance-none w-full bg-gray-200 border @error('foto') border-red-500 @else border-gray-200 @enderror  text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
+
+                @if($foto)
+                    <img src="{{$foto->temporaryUrl()}}" alt="" width="150" class="my-3">
+            @endif
+
+                @error('foto')
+                <h5 class="text-red-500 text-xs italic">{{$message}}</h5>
+                @enderror
+
+            </p>
+
+
+            <p class="w-full px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Data do Comprovante, pode deixar em branco se o dia for hoje.</label>
+
+                <input type="text" name="despesa_data" wire:model="despesa_data"
+                       class="block appearance-none w-full bg-gray-200 border border-gray-200  text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
             </p>
 
         </div>

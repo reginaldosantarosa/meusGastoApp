@@ -5,8 +5,9 @@ use App\Http\Livewire\Despesa\{
     DespesaEdit,
     DespesaList,
 };
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +33,19 @@ Route::middleware(['auth:sanctum', 'verified'])->group( function () {
         Route::get('/',DespesaList::class)->name('index');
         Route::get('/create',DespesaCreate::class)->name('create');
         Route::get('/edit/{despesa}',DespesaEdit::class)->name('edit');
+        Route::get('/{despesa}/foto', function ($despesa){
+               $despesa = auth()->user()->despesas()->findOrFail($despesa);
+
+                if(! Storage::disk('public')->exists($despesa->foto)){
+                    return abort('404','Imagem nao existe');
+                }
+
+              $imagem=Storage::disk('public')->get($despesa->foto);
+               $mimeType = File::mimeType(storage_path('app/public/' . $despesa->foto));
+
+                return response($imagem)->header('Content-Type',$mimeType);
+           })
+            ->name('foto');
     });
 
 });

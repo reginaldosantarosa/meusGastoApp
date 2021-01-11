@@ -10,7 +10,7 @@ class DespesaList extends Component
     public function render()
     {
         //$despesas = Despesa::all(['id','descricao','valor','type','created_at']);
-        $despesas = Despesa::paginate(2);
+        $despesas = Despesa::paginate(15);
 
         return view('livewire.despesa.despesa-list', compact('despesas'));
     }
