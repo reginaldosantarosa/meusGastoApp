@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterDespesasTable extends Migration
+class AlterPlanosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class AlterDespesasTable extends Migration
      */
     public function up()
     {
-        Schema::table('despesas', function (Blueprint $table) {
+        Schema::table('planos', function (Blueprint $table) {
             $table->timestamps();
-
         });
     }
 
@@ -26,9 +25,8 @@ class AlterDespesasTable extends Migration
      */
     public function down()
     {
-        Schema::table('despesas', function (Blueprint $table) {
-           $table->dropColumn('foto');
-           $table->dropColumn('despesa_data');
+        Schema::table('planos', function (Blueprint $table) {
+          //
         });
     }
 }

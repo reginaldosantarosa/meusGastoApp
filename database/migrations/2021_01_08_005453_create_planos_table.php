@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreatePlanosTable extends Migration
 {
-   
+
     public function up()
     {
         Schema::create('planos', function (Blueprint $table) {
@@ -14,7 +14,7 @@ class CreatePlanosTable extends Migration
             $table->string('nome');
             $table->string('descricao')->nullable();
             $table->string('slug');
-            $table->integer('preco');
+            $table->integer('valor');
             $table->string('referencia');
         });
     }

@@ -3,8 +3,19 @@
 use App\Http\Livewire\Despesa\{
     DespesaCreate,
     DespesaEdit,
-    DespesaList,
+    DespesaList
 };
+
+use App\Http\Livewire\Plano\{
+    PlanoCreate,
+    PlanoList,
+};
+
+use App\Http\Livewire\Pagamento\{
+    CrediCard,
+
+};
+
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades;
@@ -48,4 +59,10 @@ Route::middleware(['auth:sanctum', 'verified'])->group( function () {
             ->name('foto');
     });
 
+    Route::prefix('planos')->name('planos.')->group(function(){
+        Route::get('/',PlanoList::class)->name('index');
+        Route::get('/create',PlanoCreate::class)->name('create');
+    });
 });
+
+Route::get('/inscricao',CrediCard::class)->name('plano.inscricao');

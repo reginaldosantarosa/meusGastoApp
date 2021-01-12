@@ -9,8 +9,17 @@ class Plano extends Model
 {
     use HasFactory;
 
-    protected $fillable= ['nome','descricao','slug','reference','preco'] ;
+    protected $fillable= ['nome','descricao','slug','referencia','valor'] ;
 
+    public function getValorAttribute()
+    {
+        return $this->attributes['valor'] / 100;
+    }
+
+    public function setValorAttribute($prop)
+    {
+        return $this->attributes['valor'] = $prop * 100;
+    }
 
     public function features()
     {

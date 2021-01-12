@@ -5,7 +5,7 @@
 
     @include('includes.message')
 
-    <form action="" wire:submit.prevent="updateDespesa" class="w-full max-w-7xl mx-auto">
+    <form action="" wire:submit.prevent="updateDespesa" class="w-full max-w-7xl mx-auto py-10 ">
 
         <div class="flex flex-wrap -mx-3 mb-6">
 
