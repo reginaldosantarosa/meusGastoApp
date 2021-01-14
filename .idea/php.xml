@@ -119,6 +119,7 @@
       <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
       <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
       <path value="$PROJECT_DIR$/vendor/dragonmantank/cron-expression" />
+      <path value="" />
     </include_path>
   </component>
   <component name="PhpUnit">

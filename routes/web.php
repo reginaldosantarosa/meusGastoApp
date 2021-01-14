@@ -12,7 +12,7 @@ use App\Http\Livewire\Plano\{
 };
 
 use App\Http\Livewire\Pagamento\{
-    CrediCard,
+    CreditCard,
 
 };
 
@@ -65,4 +65,4 @@ Route::middleware(['auth:sanctum', 'verified'])->group( function () {
     });
 });
 
-Route::get('/inscricao',CrediCard::class)->name('plano.inscricao');
+Route::get('/inscricao/{plano:slug}',CreditCard::class)->name('plano.inscricao')->middleware('auth:sanctum');

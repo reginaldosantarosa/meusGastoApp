@@ -68,7 +68,7 @@ class User extends Authenticatable
 
     public function plano()
     {
-        return $this->hasOne(Despesa::class); //um usuario, unico plano.
+        return $this->hasOne(UserPlano::class); //um usuario, unico plano.
 
     }
 

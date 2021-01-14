@@ -9,8 +9,10 @@ class UserPlano extends Model
 {
     use HasFactory;
 
+    protected $table='user_plano';
 
-    protected $fillable= ['plano_id','referencia_transacao'] ;
+
+    protected $fillable= ['plano_id','referencia_transacao','data_inscricao','status'] ;
 
 
     public function user()
